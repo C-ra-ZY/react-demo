@@ -12,6 +12,7 @@ const play = (state, index) => {
 	let nextPlayer = state.status.filter((e) => !!e).length % 2 ? "O" : "X";
 	state.winner = null;
 	state.status[index] = nextPlayer;
+	state.status = [...state.status];
 	if (state.currentRound < state.history.length) {
 		let equal = shallowEqualArrays(state.history[state.currentRound] || [], state.status);
 		if (!equal) {
