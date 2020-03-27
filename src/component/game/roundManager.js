@@ -1,35 +1,42 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import * as action from "../../action";
 
 class RoundManger extends Component {
-	onChange(evt) {
-		const { changeRound } = this.props;
-		changeRound(evt.target.value);
-	}
+  onChange(evt) {
+    const {changeRound} = this.props;
+    changeRound(evt.target.value);
+  }
 
-	render() {
-		const { history, currentRound } = this.props;
-		let loopEntity = history.length ? history : new Array(1).fill(0);
-		return (
-			<div className="roundManager">
-				<div>{"Round:"}</div>
-				<select className="roundManager" onChange={this.onChange.bind(this)} value={currentRound}>
-					{loopEntity.map((e, index) => {
-						return (
-							<option value={index + 1} key={index}>
-								{index + 1}
-							</option>
-						);
-					})}
-				</select>
-			</div>
-		);
-	}
+  render() {
+    const {history, currentRound} = this.props;
+    let loopEntity = history.length ? history : new Array(1).fill(0);
+    return (
+      <div className="roundManager">
+        <div>{"Round:"}</div>
+        <select className="roundManager" onChange={this.onChange.bind(this)} value={currentRound}>
+          {loopEntity.map((e, index) => {
+            return (
+              <option value={index + 1} key={index}>
+                {index + 1}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-	const { changeRound, history, currentRound } = state;
-	return { ...{ changeRound, history, currentRound } };
+  const {changeRound, history, currentRound} = state;
+  return {changeRound, history, currentRound};
 }
 
-export default connect(mapStateToProps)(RoundManger);
+function mapDispatchToProps(dispatch) {
+  return {
+    changeRound: index => dispatch(action.changeRound(index))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoundManger);
