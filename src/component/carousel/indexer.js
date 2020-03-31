@@ -13,7 +13,7 @@ const Indexer = props => {
       <div className="indexer">
         {new Array(length).fill(null).map((e, index) => {
           let className = "dot";
-          if (index == carouselIndex) {
+          if (index===carouselIndex) {
             className += " active";
           }
           return (

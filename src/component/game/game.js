@@ -32,10 +32,8 @@ class Game extends Component {
 Game.propTypes = {
   status: PropTypes.array.isRequired,
   play: PropTypes.func.isRequired,
-  // changeRound: PropTypes.func.isRequired,
-  // currentRound: PropTypes.number.isRequired,
+  changeRound: PropTypes.func.isRequired,
   winner: PropTypes.string
-  // history: PropTypes.arrayOf(PropTypes.array).isRequired
 };
 
 function mapStateToProps(state) {
@@ -45,8 +43,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    play: arg => dispatch(action.play(arg)),
-    changeRound: arg => dispatch(action.changeRound(arg))
+    play: arg => dispatch(action.PLAY(arg)),
+    changeRound: arg => dispatch(action.CHANGE_ROUND(arg))
   };
 }
 

@@ -35,7 +35,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeRound: index => dispatch(action.changeRound(index))
+    changeRound: index => dispatch(action.CHANGE_ROUND(index))
   };
 }
 

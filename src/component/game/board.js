@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Square from "./square";
 
 export default class Board extends Component {
 	onClick = (evt) => {

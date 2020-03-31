@@ -1,3 +1,3 @@
-const { override, addBabelPlugin } = require("customize-cra");
+const {override, addBabelPlugin, addDecoratorsLegacy} = require("customize-cra");
 
-module.exports = override(addBabelPlugin("styled-jsx/babel"));
+module.exports = override(addDecoratorsLegacy(), addBabelPlugin("styled-jsx/babel"));

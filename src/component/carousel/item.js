@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Item extends Component {
 	render() {
-		let { index, children, color, width } = this.props;
+		let {children} = this.props;
 		return (
 			<React.Fragment>
 				<style jsx>{`
